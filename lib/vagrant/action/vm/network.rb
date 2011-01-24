@@ -100,9 +100,22 @@ module Vagrant
           # One doesn't exist, create it.
           @env.ui.info I18n.t("vagrant.actions.vm.network.creating")
 
+          host_ip = network_ip(net_options[:ip], net_options[:netmask])
+
           ni = interfaces.create
-          ni.enable_static(network_ip(net_options[:ip], net_options[:netmask]),
-                           net_options[:netmask])
+          ni.enable_static(host_ip, net_options[:netmask])
+
+          if net_options[:dhcp_range] != nil then
+            @env.ui.info I18n.t("vagrant.actions.vm.network.dhcp.creating")
+            dhcp_server = ni.dhcp_server
+            dhcp_server.network_mask = net_options[:netmask]
+            dhcp_server.lower_ip = net_options[:dhcp_range][0]
+            dhcp_server.upper_ip = net_options[:dhcp_range][1]
+            dhcp_server.ip_address = host_ip
+            dhcp_server.enabled = true
+            dhcp_server.save
+          end
+
           ni.name
         end
 

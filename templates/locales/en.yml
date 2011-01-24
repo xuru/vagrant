@@ -360,6 +360,8 @@ en:
             the IP or name of your host only network to not match that of
             a bridged or non-hostonly network.
           creating: "Creating new host only network for environment..."
+          dhcp:
+            creating: "Enabling DHCP server..."
           enabling: "Enabling host only network..."
           not_found: |-
             The specified host network could not be found: '%{name}.'
