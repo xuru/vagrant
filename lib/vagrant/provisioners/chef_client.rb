@@ -27,6 +27,7 @@ module Vagrant
           @file_backup_path = "/srv/chef/cache"
           @encrypted_data_bag_secret_key_path = nil
           @encrypted_data_bag_secret = "/etc/chef/encrypted_data_bag_secret"
+          @environment = "_default"
         end
 
         def validate(errors)
