@@ -1,7 +1,7 @@
 module Vagrant
   module Command
     class SSHConfigCommand < NamedBase
-      class_option :host, :type => :string, :default => nil, :aliases => "-h"
+      class_option :host, :type => :string, :default => nil, :aliases => "-h", :desc => "Name to use for host specifiation"
       register "ssh_config", "outputs .ssh/config valid syntax for connecting to this environment via ssh"
 
       def execute

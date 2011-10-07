@@ -1,10 +1,10 @@
 module Vagrant
   module Command
     class PackageCommand < NamedBase
-      class_option :base, :type => :string, :default => nil
-      class_option :output, :type => :string, :default => nil
-      class_option :include, :type => :array, :default => nil
-      class_option :vagrantfile, :type => :string, :default => nil
+      class_option :base, :type => :string, :default => nil, :desc => "Name of the VM we want to package"
+      class_option :output, :type => :string, :default => nil, :desc => "Override the output file (defaults to package.box)"
+      class_option :include, :type => :array, :default => nil, :desc => "Optional list of files to include while packaging"
+      class_option :vagrantfile, :type => :string, :default => nil, :desc => "Vagrantfile to include while packaging"
       register "package", "Package a Vagrant environment for distribution"
 
       def execute

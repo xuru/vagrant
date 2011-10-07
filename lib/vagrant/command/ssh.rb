@@ -1,7 +1,7 @@
 module Vagrant
   module Command
     class SSHCommand < NamedBase
-      class_option :command, :type => :string, :default => false, :aliases => "-c"
+      class_option :command, :type => :string, :default => false, :aliases => "-c", :desc => "If command is specified, it is executed on the remote host instead of a login shell."
       register "ssh", "SSH into the currently running Vagrant environment."
 
       def execute

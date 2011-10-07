@@ -1,7 +1,7 @@
 module Vagrant
   module Command
     class HaltCommand < NamedBase
-      class_option :force, :type => :boolean, :default => false, :aliases => "-f"
+      class_option :force, :type => :boolean, :default => false, :aliases => "-f", :desc => "Instantly shut down the machine (don't do a clean shutdown first)"
       register "halt", "Halt the running VMs in the environment"
 
       def execute

@@ -1,7 +1,7 @@
 module Vagrant
   module Command
     class UpCommand < NamedBase
-      class_option :provision, :type => :boolean, :default => true
+      class_option :provision, :type => :boolean, :default => true, :desc => "Flag indicating we should provision the machine after bringing it up"
       register "up", "Creates the Vagrant environment"
 
       def execute
